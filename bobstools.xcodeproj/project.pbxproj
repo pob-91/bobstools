@@ -25,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D434A893247B19C100DA40CC /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		D4776783247704FD00E40C1B /* bobstools */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bobstools; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4776786247704FD00E40C1B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D477678E2477054800E40C1B /* Dog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
@@ -45,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D434A892247B19AE00DA40CC /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D434A893247B19C100DA40CC /* json.hpp */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		D477677A247704FD00E40C1B = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +73,7 @@
 		D4776785247704FD00E40C1B /* bobstools */ = {
 			isa = PBXGroup;
 			children = (
+				D434A892247B19AE00DA40CC /* Libraries */,
 				D477678D2477052F00E40C1B /* Models */,
 				D4776786247704FD00E40C1B /* main.cpp */,
 			);

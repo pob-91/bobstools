@@ -18,6 +18,6 @@ namespace Model {
     Dog::Dog(std::string name) : Animal(name, AnimalType::Dog) {}
 
     void Dog::MakeNoise() {
-        cout << this->Name << " says " << this->sound;
+        cout << this->Name << " says " << this->sound << endl;
     }
 }

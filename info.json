@@ -1,0 +1,10 @@
+{
+	"prop1": "I'm a json string",
+	"prop2": [
+		"arr1",
+		"arr2"
+	],
+	"pro3": {
+		"nested": "object"
+	}
+}

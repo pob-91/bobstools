@@ -1,8 +1,8 @@
 /*
  * make an animal class with a noise method DONE
  * inherit from animal and make dog with bark DONE
- * read a txt file
- * manipulate a txt file
+ * read a txt file DONE
+ * manipulate a txt file DONE (sorta)
  * read, parse and manipulate a json file
  * encrypt and unlock the file
  * make an http request
@@ -19,23 +19,55 @@
  */
 
 #include <iostream>
+#include <unistd.h>
+#include <fstream>
+
+#include "json.hpp"
+
 #include "Animal.h"
 #include "Dog.h"
 
 using namespace std;
 
-int main() {
+int main(int argc, char ** argv) {
 
-  Animal animal;
-  Animal other("Bill", AnimalType::Cat);
+    Animal animal;
+    Animal other("Bill", AnimalType::Cat);
 
-  Model::Dog fido;
-  Model::Dog barry("barry");
+    Model::Dog fido;
+    Model::Dog barry("barry");
 
-  fido.Name = "fido";
+    fido.Name = "fido";
 
-  animal.MakeNoise();
-  fido.MakeNoise();
+    animal.MakeNoise();
+    fido.MakeNoise();
+    
+    // get current working dir (note, different for windows so have to use an ifdef
+    char buff[FILENAME_MAX];
+    getcwd(buff, FILENAME_MAX);
+    string currentWorkingDir(buff);
+    
+    cout << currentWorkingDir << endl;
+    
+    cout << argc << endl;
+    
+    // print command line args
+    for (int i = 0; i < argc; i++) {
+        string arg(*(argv + i));
+        cout << arg << endl;
+    }
+    
+    // read a file
+    ifstream fileHandle("info.json");
+    if (fileHandle.is_open()) {
+        string line;
+        while(getline(fileHandle, line)) {
+            cout << line << endl;
+        }
+        fileHandle.close();
+    } else {
+        cout << "Could not open file" << endl;
+    }
 
-  return 0;
+    return 0;
 }
