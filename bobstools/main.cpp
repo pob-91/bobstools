@@ -2,13 +2,13 @@
  * make an animal class with a noise method DONE
  * inherit from animal and make dog with bark DONE
  * read a txt file DONE
- * manipulate a txt file DONE (sorta)
- * read, parse and manipulate a json file
+ * manipulate a txt file DONE
+ * read, parse and manipulate a json file DONE
  * encrypt and unlock the file
- * make an http request
- * see if there are any 3rd party libraries out there for exploring data via the terminal
- * implement the most common data structures (like doing a CS degree)
- * implement the most useful algorithms (list sort e.t.c CS degree)
+ * make an http request DONE
+ * implement the most common data structures (like doing a CS degree), ARRAY, LINKED LIST, TREE
+ * implement the most useful algorithms (list sort e.t.c CS degree), INSERTION, DELETION, TRAVERSAL, SEARCHING, SORTING!, MERGING
+ * play with ncurses
  * make a basic weather and news console
  * make a web server that gets texts from twilio and adds expenditure to google drive (or some other cool server side thing, use low level shit)
  * on command open a window and render the camera
@@ -19,55 +19,34 @@
  */
 
 #include <iostream>
-#include <unistd.h>
-#include <fstream>
-
-#include "json.hpp"
-
-#include "Animal.h"
-#include "Dog.h"
+#include <curl/curl.h>
 
 using namespace std;
 
 int main(int argc, char ** argv) {
-
-    Animal animal;
-    Animal other("Bill", AnimalType::Cat);
-
-    Model::Dog fido;
-    Model::Dog barry("barry");
-
-    fido.Name = "fido";
-
-    animal.MakeNoise();
-    fido.MakeNoise();
-    
-    // get current working dir (note, different for windows so have to use an ifdef
-    char buff[FILENAME_MAX];
-    getcwd(buff, FILENAME_MAX);
-    string currentWorkingDir(buff);
-    
-    cout << currentWorkingDir << endl;
-    
-    cout << argc << endl;
-    
-    // print command line args
-    for (int i = 0; i < argc; i++) {
-        string arg(*(argv + i));
-        cout << arg << endl;
-    }
-    
-    // read a file
-    ifstream fileHandle("info.json");
-    if (fileHandle.is_open()) {
-        string line;
-        while(getline(fileHandle, line)) {
-            cout << line << endl;
-        }
-        fileHandle.close();
-    } else {
-        cout << "Could not open file" << endl;
-    }
-
     return 0;
 }
+
+/*
+static int makeHttpRequestExample() {
+    CURL *curl;
+    CURLcode result;
+
+    curl = curl_easy_init();
+    if (curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, "https://google.co.uk");
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+
+        result = curl_easy_perform(curl);
+
+        if (result != CURLE_OK) {
+            cout << "Failed request" << endl;
+            curl_easy_cleanup(curl);
+            return 1;
+        }
+
+        curl_easy_cleanup(curl);
+    }
+    return 0;
+}
+*/
